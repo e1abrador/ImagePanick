@@ -5,7 +5,7 @@ SVG-to-RCE exploit chaining ImageMagick weak default policies with Ghostscript S
 <p align="center">
   <video src="https://github.com/user-attachments/assets/08faa7db-4dfb-43af-bac6-20ae3d83ff48">
   </video>
-</p
+</p>
 
 ## Overview
 
@@ -90,7 +90,7 @@ magick /tmp/poc.svg output.png
 
 | Software | Version | Role |
 |---|---|---|
-| ImageMagick | Latest (at time of discovery) | Weak default policies |
+| ImageMagick | 7.1.2-13 | Weak default policies |
 | Ghostscript | 10.06.0 | SAFER bypass vulnerabilities |
 
 ## Impact
