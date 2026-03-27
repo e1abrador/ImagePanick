@@ -26,8 +26,6 @@ One command triggers the full chain:
 magick input.svg output.png
 ```
 
-No user interaction. No special flags. No non-default configuration.
-
 ## Attack Flow
 
 ```
