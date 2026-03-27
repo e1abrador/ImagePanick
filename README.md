@@ -2,7 +2,6 @@
 
 SVG-to-RCE exploit chaining ImageMagick weak default policies with Ghostscript SAFER bypass vulnerabilities.
 
-
 <p align="center">
   <video src="https://github.com/user-attachments/assets/08faa7db-4dfb-43af-bac6-20ae3d83ff48">
   </video>
@@ -57,19 +56,7 @@ docker build -t imagepanick .
 ### Run
 
 ```bash
-docker run --rm -it imagepanick
-```
-
-Inside the container, the PoC is ready to execute. Run:
-
-```bash
-magick /tmp/poc.svg output.png
-```
-
-Then verify the arbitrary write:
-
-```bash
-ls -la /tmp/gs_0day_proof.png
+docker run --rm -p 8080:80 imagepanick
 ```
 
 ## PoC Generator
@@ -116,16 +103,6 @@ Any system processing untrusted SVGs with ImageMagick is potentially affected:
 - Any automated SVG processing workflow
 
 Arbitrary file write trivially escalates to RCE via `~/.bashrc`, `/etc/cron.d/`, web-accessible directories, `~/.ssh/authorized_keys`, etc.
-
-## Mitigations
-
-1. **Disable the Ghostscript delegate** in `delegates.xml` if EPS/PS support is not needed
-2. **Restrict coders via `policy.xml`**:
-   ```xml
-   <policy domain="coder" rights="none" pattern="{SVG,EPS,PS,MSL}" />
-   ```
-3. **Sandbox ImageMagick** using `nsjail`, `firejail`, or container isolation with a read-only filesystem
-4. **Use `librsvg`** instead of ImageMagick for SVG rasterization — it does not invoke Ghostscript
 
 ## Blog Post
 
