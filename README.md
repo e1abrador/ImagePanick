@@ -104,7 +104,7 @@ Arbitrary file write trivially escalates to RCE via `~/.bashrc`, `/etc/cron.d/`,
 
 ## Blog Post
 
-Full technical writeup available at [Deep Hacking](https://blog.deephacking.tech/).
+Full technical writeup available at [Deep Hacking](https://blog.deephacking.tech/en/posts/imagepanick-from-svg-to-rce-imagemagick-ghostscript/).
 
 ## Disclaimer
 
